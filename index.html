@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 고등학교 생활</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #ce4a4a;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        .navigation {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+        .navigation a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .navigation a:hover {
+            background-color: #ddd;
+        }
+        .content {
+            padding: 20px;
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .sub-content {
+            display: none;
+        }
+        .sub-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>나의 고등학교 생활</h1>
+    </div>
+    <div class="navigation">
+        <a onclick="toggleSection('grade1')">1학년</a>
+        <a onclick="toggleSection('grade2')">2학년</a>
+        <a onclick="toggleSection('grade3')">3학년</a>
+    </div>
+    <div id="grade1" class="content">
+        <h2>1학년</h2>
+        <div id="grade1_activities">
+            <h3 onclick="toggleSubContent('grade1_curricular')">교과활동</h3>
+            <ul id="grade1_curricular" class="sub-content">
+                <li><a onclick="toggleSubSubject('grade1_korean')">국어</a></li>
+                <li><a onclick="toggleSubSubject('grade1_english')">영어</a></li>
+                <li><a onclick="toggleSubSubject('grade1_math')">수학</a></li>
+                <li><a onclick="toggleSubSubject('grade1_physics')">물리</a></li>
+            </ul>
+        </div>
+        <div id="grade1_extracurricular">
+            <h3 onclick="toggleSubContent('grade1_extracurricular')">비교과활동</h3>
+            <p>1학년에서의 비교과활동 내용을 작성하세요.</p>
+        </div>
+        <div id="grade1_memories">
+            <h3>추억</h3>
+            <p>1학년에서의 소중한 추억을 공유하세요.</p>
+        </div>
+    </div>
+    <div id="grade2" class="content">
+        <h2>2학년</h2>
+        <div id="grade2_activities">
+            <h3 onclick="toggleSubContent('grade2_curricular')">교과활동</h3>
+            <ul id="grade2_curricular" class="sub-content">
+                <li><a onclick="toggleSubSubject('grade2_korean')">국어</a></li>
+                <li><a onclick="toggleSubSubject('grade2_english')">영어</a></li>
+                <li><a onclick="toggleSubSubject('grade2_math')">수학</a></li>
+                <li><a onclick="toggleSubSubject('grade2_physics')">물리</a></li>
+            </ul>
+        </div>
+        <div id="grade2_extracurricular">
+            <h3>비교과활동</h3>
+            <p>2학년에서의 비교과활동 내용을 작성하세요.</p>
+        </div>
+        <div id="grade2_memories">
+            <h3>추억</h3>
+            <p>2학년에서의 소중한 추억을 공유하세요.</p>
+        </div>
+    </div>
+    <div id="grade3" class="content">
+        <h2>3학년</h2>
+        <div id="grade3_activities">
+            <h3 onclick="toggleSubContent('grade3_curricular')">교과활동</h3>
+            <ul id="grade3_curricular" class="sub-content">
+                <li><a onclick="toggleSubSubject('grade3_korean')">국어</a></li>
+                <li><a onclick="toggleSubSubject('grade3_english')">영어</a></li>
+                <li><a onclick="toggleSubSubject('grade3_math')">수학</a></li>
+                <li><a onclick="toggleSubSubject('grade3_physics')">물리</a></li>
+            </ul>
+        </div>
+        <div id="grade3_extracurricular">
+            <h3>비교과활동</h3>
+            <p>3학년에서의 비교과활동 내용을 작성하세요.</p>
+        </div>
+        <div id="grade3_memories">
+            <h3>추억</h3>
+            <p>3학년에서의 소중한 추억을 공유하세요.</p>
+        </div>
+    </div>
+    <script>
+        function toggleSection(sectionId) {
+            var sections = document.querySelectorAll('.content');
+            sections.forEach(function(section) {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+
+            var subContents = document.querySelectorAll('.sub-content');
+            subContents.forEach(function(subContent) {
+                subContent.classList.remove('active');
+            });
+        }
+
+        function toggleSubContent(subSectionId) {
+            var subSection = document.getElementById(subSectionId);
+            if (subSection.classList.contains('active')) {
+                subSection.classList.remove('active');
+            } else {
+                subSection.classList.add('active');
+            }
+        }
+
+        function toggleSubSubject(subSubjectId) {
+            var subSubject = document.getElementById(subSubjectId);
+            if (subSubject.classList.contains('active')) {
+                subSubject.classList.remove('active');
+            } else {
+                subSubject.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
